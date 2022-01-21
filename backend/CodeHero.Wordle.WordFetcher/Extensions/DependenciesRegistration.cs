@@ -1,10 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using CodeHero.Wordle.Domain.Services;
+using CodeHero.Wordle.WordFetcher.Services;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CodeHero.Wordle.WordFetcher.Extensions
 {
@@ -12,6 +8,8 @@ namespace CodeHero.Wordle.WordFetcher.Extensions
     {
         public static IServiceCollection AddWordFetcherDependencies(this IServiceCollection services)
         {
+            services.AddSingleton<IWordFetcher, BestWordlListWordFetcher>();
+
             return services;
         }
     }

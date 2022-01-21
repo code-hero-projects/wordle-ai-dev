@@ -21,6 +21,8 @@ namespace CodeHero.Wordle.Database.Repositories
 
         public async Task<IEnumerable<T>> FilterAsync(Expression<Func<T, bool>> predicate) => await _dbSet.AsNoTracking().Where(predicate).ToListAsync();
 
+        public async Task<IEnumerable<T>> ListAsync() => await _dbSet.AsNoTracking().ToListAsync();
+
         public async Task SaveChangesAsync() => await _dbContext.SaveChangesAsync();
     }
 }

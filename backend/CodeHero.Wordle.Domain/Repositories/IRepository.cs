@@ -6,6 +6,7 @@ namespace CodeHero.Wordle.Domain.Repositories
     {
         Task AddAsync(T entity);
         Task<IEnumerable<T>> FilterAsync(Expression<Func<T, bool>> predicate);
+        Task<IEnumerable<T>> ListAsync();
         Task SaveChangesAsync();
     }
 }

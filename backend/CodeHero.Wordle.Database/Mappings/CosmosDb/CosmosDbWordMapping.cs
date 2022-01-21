@@ -16,6 +16,10 @@ namespace CodeHero.Wordle.Database.Mappings.CosmosDb
             builder.HasKey(x => x.Id);
 
             builder
+                .Property(x => x.Id)
+                .HasColumnType("uuid");
+
+            builder
                 .Property(x => x.Characters)
                 .IsRequired();
 

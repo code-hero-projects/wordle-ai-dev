@@ -3,6 +3,7 @@ using CodeHero.Wordle.Api.Extensions;
 using CodeHero.Wordle.Application.Extensions;
 using CodeHero.Wordle.Database;
 using CodeHero.Wordle.Database.Extensions;
+using CodeHero.Wordle.WordFetcher;
 using CodeHero.Wordle.WordFetcher.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +11,6 @@ var services = builder.Services;
 var configuration = builder.Configuration;
 
 var databaseConfiguration = configuration.GetSection(ApiConstants.AppSettingsDatabaseSection);
-// var wordFetcherConfiguration = configuration.GetSection(ApiConstants.AppSettingsDWordSupplierUrlSection);
 
 services
     .AddDatabaseDependencies(databaseConfiguration)
@@ -29,5 +29,6 @@ if (app.Environment.IsDevelopment())
 app.MapControllers();
 
 app.InitialiseDatabase();
+await app.InitialiseWordDataSet();
 
 app.Run();
