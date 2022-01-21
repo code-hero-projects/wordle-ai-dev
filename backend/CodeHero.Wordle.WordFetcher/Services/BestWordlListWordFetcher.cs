@@ -1,12 +1,7 @@
 ﻿using CodeHero.Wordle.Domain.Model;
 using CodeHero.Wordle.Domain.Services;
 using HtmlAgilityPack;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CodeHero.Wordle.WordFetcher.Services
 {
@@ -21,8 +16,8 @@ namespace CodeHero.Wordle.WordFetcher.Services
             var htmlWeb = GetHtmlWeb();
             var document = htmlWeb.Load(StartUrl);
             var words = GetWords(document);
-            
-            for(var i = 2; ; ++i)
+
+            for (var i = 2; ; ++i)
             {
                 var currentUrl = GetPageUrl(CurrentPageUrl, i);
                 document = htmlWeb.Load(currentUrl);
@@ -41,13 +36,13 @@ namespace CodeHero.Wordle.WordFetcher.Services
         }
 
         private HtmlWeb GetHtmlWeb() => new HtmlWeb()
+        {
+            PreRequest = request =>
             {
-                PreRequest = request =>
-                {
-                    request.AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip;
-                    return true;
-                }
-            };
+                request.AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip;
+                return true;
+            }
+        };
 
         private IEnumerable<Word> GetWords(HtmlDocument document) => document
             .DocumentNode

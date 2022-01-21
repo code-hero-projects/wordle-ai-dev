@@ -1,5 +1,4 @@
-﻿using CodeHero.Wordle.Domain.Model;
-using CodeHero.Wordle.Domain.Repositories;
+﻿using CodeHero.Wordle.Domain.Repositories;
 using CodeHero.Wordle.Domain.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
