@@ -10,7 +10,7 @@ namespace CodeHero.Wordle.WordFetcher.Extensions
 {
     public static class DependenciesRegistration
     {
-        public static IServiceCollection AddWordFetcherDependencies(this IServiceCollection services, IConfigurationSection configurationSection)
+        public static IServiceCollection AddWordFetcherDependencies(this IServiceCollection services)
         {
             return services;
         }

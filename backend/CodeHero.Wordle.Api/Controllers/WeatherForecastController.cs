@@ -1,3 +1,5 @@
+using CodeHero.Wordle.Domain.Model;
+using CodeHero.Wordle.Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CodeHero.Wordle.Api.Controllers
@@ -6,28 +8,29 @@ namespace CodeHero.Wordle.Api.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        private readonly IWordRepository _wordRepository;
 
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
-        {
-            _logger = logger;
-        }
+        public WeatherForecastController(IWordRepository wordRepository) => _wordRepository = wordRepository;
 
         [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            var table = new Word()
             {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+                Characters = "table"
+            };
+
+            var chair = new Word()
+            {
+                Characters = "chair"
+            };
+
+            await _wordRepository.AddAsync(table);
+            await _wordRepository.AddAsync(chair);
+
+            await _wordRepository.SaveChangesAsync();
+
+            var words = await _wordRepository.FilterAsync(word => word.Characters.Contains("r"));
         }
     }
 }

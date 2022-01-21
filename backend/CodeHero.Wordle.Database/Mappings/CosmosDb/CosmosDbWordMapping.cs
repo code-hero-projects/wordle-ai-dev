@@ -19,7 +19,7 @@ namespace CodeHero.Wordle.Database.Mappings.CosmosDb
                 .Property(x => x.Characters)
                 .IsRequired();
 
-            builder.HasPartitionKey(x => x.Id);
+            builder.HasPartitionKey(x => x.Characters);
 
             builder.ToContainer(_databaseConfiguration.Containers[0]);
         }
