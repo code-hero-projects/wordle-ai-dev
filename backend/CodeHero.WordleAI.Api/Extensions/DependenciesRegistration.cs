@@ -1,4 +1,6 @@
-﻿namespace CodeHero.WordleAI.Api.Extensions
+﻿using System.Reflection;
+
+namespace CodeHero.WordleAI.Api.Extensions
 {
     public static class DependenciesRegistration
     {
@@ -14,7 +16,10 @@
                     .AllowAnyHeader();
             }));
 
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            services
+                .AddRouting(options => options.LowercaseUrls = true)
+                .AddAutoMapper(Assembly.GetExecutingAssembly());
+
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
 

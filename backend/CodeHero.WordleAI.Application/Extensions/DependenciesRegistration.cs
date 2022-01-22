@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using MediatR;
+using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace CodeHero.WordleAI.Application.Extensions
 {
@@ -6,6 +8,8 @@ namespace CodeHero.WordleAI.Application.Extensions
     {
         public static IServiceCollection AddApplicationDependencies(this IServiceCollection services)
         {
+            services.AddMediatR(Assembly.GetExecutingAssembly());
+
             return services;
         }
     }
