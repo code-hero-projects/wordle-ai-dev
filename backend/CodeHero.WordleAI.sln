@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeHero.WordleAI.Api", "CodeHero.WordleAI.Api\CodeHero.WordleAI.Api.csproj", "{34E75070-495B-44AC-944B-986CB7F63BF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeHero.WordleAI.Domain", "CodeHero.WordleAI.Domain\CodeHero.WordleAI.Domain.csproj", "{9358FB76-18B7-48ED-B740-750925D27B34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeHero.WordleAI.Application", "CodeHero.WordleAI.Application\CodeHero.WordleAI.Application.csproj", "{113AACBB-5875-49EF-9A82-A415345FC701}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{46C9BAC7-56DB-4B81-930E-4D1FDD1C1A5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeHero.WordleAI.Database", "CodeHero.WordleAI.Database\CodeHero.WordleAI.Database.csproj", "{81F5B88E-A96A-43F3-9BB4-CA0F506CF46A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeHero.WordleAI.Migrations.PostgreSql", "CodeHero.WordleAI.Migrations.PostgreSql\CodeHero.WordleAI.Migrations.PostgreSql.csproj", "{84DC7986-AA73-4244-BDCD-E71ED998F5E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeHero.WordleAI.WordSupplier", "CodeHero.WordleAI.WordSupplier\CodeHero.WordleAI.WordSupplier.csproj", "{E4F82246-0109-4B1E-A93B-FAD4954E34A1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34E75070-495B-44AC-944B-986CB7F63BF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34E75070-495B-44AC-944B-986CB7F63BF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34E75070-495B-44AC-944B-986CB7F63BF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34E75070-495B-44AC-944B-986CB7F63BF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9358FB76-18B7-48ED-B740-750925D27B34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9358FB76-18B7-48ED-B740-750925D27B34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9358FB76-18B7-48ED-B740-750925D27B34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9358FB76-18B7-48ED-B740-750925D27B34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{113AACBB-5875-49EF-9A82-A415345FC701}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{113AACBB-5875-49EF-9A82-A415345FC701}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{113AACBB-5875-49EF-9A82-A415345FC701}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{113AACBB-5875-49EF-9A82-A415345FC701}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81F5B88E-A96A-43F3-9BB4-CA0F506CF46A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81F5B88E-A96A-43F3-9BB4-CA0F506CF46A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81F5B88E-A96A-43F3-9BB4-CA0F506CF46A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81F5B88E-A96A-43F3-9BB4-CA0F506CF46A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84DC7986-AA73-4244-BDCD-E71ED998F5E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84DC7986-AA73-4244-BDCD-E71ED998F5E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84DC7986-AA73-4244-BDCD-E71ED998F5E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84DC7986-AA73-4244-BDCD-E71ED998F5E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4F82246-0109-4B1E-A93B-FAD4954E34A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4F82246-0109-4B1E-A93B-FAD4954E34A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4F82246-0109-4B1E-A93B-FAD4954E34A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4F82246-0109-4B1E-A93B-FAD4954E34A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{81F5B88E-A96A-43F3-9BB4-CA0F506CF46A} = {46C9BAC7-56DB-4B81-930E-4D1FDD1C1A5B}
+		{84DC7986-AA73-4244-BDCD-E71ED998F5E9} = {46C9BAC7-56DB-4B81-930E-4D1FDD1C1A5B}
+		{E4F82246-0109-4B1E-A93B-FAD4954E34A1} = {46C9BAC7-56DB-4B81-930E-4D1FDD1C1A5B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CD49657C-D285-406F-B08D-50E2CDFD43C6}
+	EndGlobalSection
+EndGlobal
