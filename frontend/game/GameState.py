@@ -1,6 +1,6 @@
-from game.CorrectLetterPosition import CorrectLetterPosition
-from game.LetterState import LetterState
-from game.MisplacedLetterPosition import MisplacedLetterPosition
+from game.model.CorrectLetterPosition import CorrectLetterPosition
+from game.model.LetterState import LetterState
+from game.model.MisplacedLetterPosition import MisplacedLetterPosition
 
 class GameState:
   def __init__(self) -> None:
@@ -19,8 +19,10 @@ class GameState:
       if (result == LetterState.WRONG):
         self.wrong.append(letter)
       elif (result == LetterState.CORRECT):
-        letter_position = CorrectLetterPosition(letter, index)
-        self.correct.append(letter_position)
+        already_correct = list(filter(lambda correct: correct.letter == letter, self.correct))
+        if (len(already_correct) == 0):
+          letter_position = CorrectLetterPosition(letter, index)
+          self.correct.append(letter_position)
       else:
         already_misplaced = list(filter(lambda misplaced: misplaced.letter == letter, self.misplaced))
         if (len(already_misplaced) == 0):

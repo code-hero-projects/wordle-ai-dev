@@ -1,8 +1,8 @@
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from pyshadow.main import Shadow
-from game.LetterInput import LetterInput
-from game.LetterState import LetterState
+from game.model.LetterInput import LetterInput
+from game.model.LetterState import LetterState
 
 class SeleniumWrapper:
   def __init__(self, url) -> None:

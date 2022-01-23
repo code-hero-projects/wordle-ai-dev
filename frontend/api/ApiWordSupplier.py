@@ -1,8 +1,8 @@
 import requests
-from word_supplier.JsonConverter import from_json, to_json
-from game.SuggestedWords import SuggestedWords
+from api.JsonConverter import from_json, to_json
+from game.model.SuggestedWords import SuggestedWords
 
-from word_supplier.PostRequestBody import PostRequestBody
+from api.PostRequestBody import PostRequestBody
 
 class ApiWordSupplier:
   def __init__(self, url) -> None:
