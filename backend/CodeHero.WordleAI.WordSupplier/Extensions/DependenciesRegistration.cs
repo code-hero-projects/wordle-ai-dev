@@ -9,6 +9,7 @@ namespace CodeHero.WordleAI.WordSupplier.Extensions
         public static IServiceCollection AddWordSupplierDependencies(this IServiceCollection services)
         {
             services.AddSingleton<IWordsFetcher, BestWordlListWordSupplier>();
+            services.AddSingleton<IWordsClassifier, DistinctLetterClassifier>();
 
             return services;
         }

@@ -4,6 +4,6 @@ namespace CodeHero.WordleAI.Domain.Services
 {
     public interface IWordsFetcher
     {
-        public Task<IEnumerable<Word>> FetchWordsAsync();
+        Task<IEnumerable<Word>> FetchWordsAsync();
     }
 }

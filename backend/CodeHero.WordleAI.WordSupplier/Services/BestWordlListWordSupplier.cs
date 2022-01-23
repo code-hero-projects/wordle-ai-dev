@@ -50,7 +50,7 @@ namespace CodeHero.WordleAI.WordSupplier.Services
             .Where(span => span.HasClass("mot") || span.HasClass("mot2"))
             .SelectMany(span => span.InnerText.Split(" "))
             .Where(word => word.Length > 0)
-            .Select(word => new Word() { Characters = word });
+            .Select(word => new Word() { Characters = word.ToLower() });
 
         private bool HasNextPage(HtmlDocument document, string nextPageUrl) => document
             .DocumentNode

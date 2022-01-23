@@ -2,6 +2,7 @@
 {
     public class GuessWordResponse
     {
-        public string Word { get; set; }
+        public string RecommendedWord { get; set; }
+        public IEnumerable<string> Words { get; set; }
     }
 }
