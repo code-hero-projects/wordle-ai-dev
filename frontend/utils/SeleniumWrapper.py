@@ -1,12 +1,11 @@
-from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 from pyshadow.main import Shadow
 from game.model.LetterInput import LetterInput
 from game.model.LetterState import LetterState
+from utils.selenium_driver_factory import get_selenium_driver
 
 class SeleniumWrapper:
-  def __init__(self, url) -> None:
-      self.driver = webdriver.Chrome(ChromeDriverManager().install())
+  def __init__(self, url, browser) -> None:
+      self.driver = get_selenium_driver(browser)
       self.driver.maximize_window()
       self.driver.get(url)
       self.driver = Shadow(self.driver)

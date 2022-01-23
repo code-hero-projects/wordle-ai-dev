@@ -6,10 +6,10 @@ from utils.input_utils import close_modal
 from api.WordleAIApi import WordleAIApi
 
 def main():
-  selenium_wrapper = SeleniumWrapper(WORDLE_URL)
+  selenium_wrapper = SeleniumWrapper(WORDLE_URL, BROWSER)
   word_api = WordleAIApi(API_URL)
 
-  time.sleep(2)
+  time.sleep(5)
   close_modal()
 
   game = Game(selenium_wrapper, word_api, FIRST_WORD, SLEEP_AFTER_WORD_IN_SECONDS, SLEEP_AFTER_END_GAME_IN_SECCONDS)
