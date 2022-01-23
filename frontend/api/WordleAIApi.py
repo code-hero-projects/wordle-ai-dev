@@ -4,7 +4,7 @@ from game.model.SuggestedWords import SuggestedWords
 
 from api.PostRequestBody import PostRequestBody
 
-class ApiWordSupplier:
+class WordleAIApi:
   def __init__(self, url) -> None:
       self.url = url
   

@@ -1,31 +1,19 @@
-from email.mime import audio
 import time
 from config import *
+from game.Game import Game
 from utils.SeleniumWrapper import SeleniumWrapper
-from utils.input_utils import close_modal, write_word
-from game.GameState import GameState
-from api.ApiWordSupplier import ApiWordSupplier
+from utils.input_utils import close_modal
+from api.WordleAIApi import WordleAIApi
 
 def main():
   selenium_wrapper = SeleniumWrapper(WORDLE_URL)
-  game_state = GameState()
-  word_supplier = ApiWordSupplier(API_URL)
+  word_api = WordleAIApi(API_URL)
 
-  time.sleep(5)
+  time.sleep(2)
   close_modal()
-  play_turn(0, FIRST_WORD, game_state, selenium_wrapper)
 
-  for i in range(1, 6):
-    suggested_words = word_supplier.get_word(game_state)
-    play_turn(i, suggested_words.recommended_word, game_state, selenium_wrapper)
-
-def play_turn(turn, word, game_state, selenium_wrapper):
-  write_word(word)
-
-  time.sleep(SLEEP_AFTER_WORD_IN_SECONDS)
-  
-  last_input = selenium_wrapper.get_last_input(turn)
-  game_state.update_state(last_input, word)
+  game = Game(selenium_wrapper, word_api, FIRST_WORD, SLEEP_AFTER_WORD_IN_SECONDS, SLEEP_AFTER_END_GAME_IN_SECCONDS)
+  game.play()
 
 if __name__ == '__main__':
   main()
