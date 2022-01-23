@@ -1,0 +1,4 @@
+Before running the Python script you need to install a WebDriver tool, depending on the browser that you're using:
+  https://selenium-python.readthedocs.io/installation.html#drivers
+
+If you're running it on Windows you need to add the .exe file to the Path.

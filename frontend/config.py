@@ -1,0 +1,1 @@
+WORDLE_URL = 'https://www.powerlanguage.co.uk/wordle/'
