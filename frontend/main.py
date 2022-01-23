@@ -1,11 +1,28 @@
 import time
 from config import *
-from SeleniumWrapper import SeleniumWrapper
-from input_utils import close_modal, press_key
+from utils.SeleniumWrapper import SeleniumWrapper
+from utils.input_utils import close_modal, write_word
+from game.GameState import GameState
+from word_supplier.ApiWordSupplier import ApiWordSupplier
 
-selenium_wrapper = SeleniumWrapper(WORDLE_URL)
+def main():
+  selenium_wrapper = SeleniumWrapper(WORDLE_URL)
+  game_state = GameState()
+  word_supplier = ApiWordSupplier(API_URL)
 
-close_modal()
+  close_modal()
+  play_turn(0, FIRST_WORD, game_state, selenium_wrapper)
 
-# for letter in 'adieu':
-#   press_key(letter)
+  # for i in range(5):
+  #   word = word_supplier.get_word(game_state)
+  #   play_turn(i, word, game_state, selenium_wrapper)
+
+def play_turn(turn, word, game_state, selenium_wrapper):
+  write_word(word)
+
+  time.sleep(2)
+  last_input = selenium_wrapper.get_last_input(turn)
+  game_state.update_state(last_input, word)
+
+if __name__ == '__main__':
+  main()
