@@ -11,12 +11,16 @@ class SeleniumWrapper:
 
       self.keyboard = self.driver.find_element('div#keyboard')
 
-  # def press_key(self, letter):
-  #   keyboards_rows = self.driver.get_child_elements(self.keyboard)
-    
-  #   for keyboard_row in keyboards_rows:
-  #     keys = keyboard_row.get_child_elements(keyboard_row)
-  #     for key in keys:
-  #       if (key.text == letter):
-  #         key.click()
-  #         return
+  def close_modal(self):
+    close_icon = self.driver.find_element("game-modal[open='']")
+    print(close_icon)
+    close_icon.click()
+
+  def press_key(self, letter):
+    keyboards_rows = self.driver.get_child_elements(self.keyboard)
+    for keyboard_row in keyboards_rows:
+      keys = self.driver.get_child_elements(keyboard_row)
+      for key in keys:
+        if (key.text == letter.upper()):
+          key.click()
+          return
