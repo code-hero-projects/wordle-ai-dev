@@ -11,10 +11,8 @@ class SeleniumWrapper:
       self.driver.get(url)
       self.driver = Shadow(self.driver)
 
-      self.keyboard = self.driver.find_element('div#keyboard')
-      self.board = self.driver.find_element('div#board')
       self.turn_tiles_mapper = { 0: (0, 5), 1: (5, 10), 2: (10, 15), 3: (15, 20), 4: (20, 25), 5: (25, 30) }
-      self.letter_state_mapper = { 'absent': LetterState.INCORRECT, 'correct': LetterState.CORRECT, 'present': LetterState.MISPLACED }
+      self.letter_state_mapper = { 'absent': LetterState.WRONG, 'correct': LetterState.CORRECT, 'present': LetterState.MISPLACED }
 
   def get_last_input(self, turn):
     all_row_tiles = self.driver.find_elements("game-tile")

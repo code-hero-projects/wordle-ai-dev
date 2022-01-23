@@ -1,3 +1,4 @@
+from email.mime import audio
 import time
 from config import *
 from utils.SeleniumWrapper import SeleniumWrapper
@@ -14,8 +15,8 @@ def main():
   play_turn(0, FIRST_WORD, game_state, selenium_wrapper)
 
   for i in range(5):
-    word = word_supplier.get_word(game_state)
-    play_turn(i, word, game_state, selenium_wrapper)
+    suggested_words = word_supplier.get_word(game_state)
+    play_turn(i, suggested_words.recommended_word, game_state, selenium_wrapper)
 
 def play_turn(turn, word, game_state, selenium_wrapper):
   write_word(word)
