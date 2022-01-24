@@ -1,5 +1,5 @@
 import requests
-from api.JsonConverter import from_json, to_json
+from api.json_converter import from_json, to_json
 from game.model.SuggestedWords import SuggestedWords
 
 from api.PostRequestBody import PostRequestBody

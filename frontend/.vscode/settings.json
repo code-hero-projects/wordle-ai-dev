@@ -1,7 +1,0 @@
-{
-  "python.analysis.extraPaths": [
-    "./utils",
-    "./game",
-    "./word_supplier"
-  ]
-}

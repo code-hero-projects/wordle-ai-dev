@@ -1,7 +1,7 @@
 from pyshadow.main import Shadow
 from game.model.LetterInput import LetterInput
 from game.model.LetterState import LetterState
-from utils.selenium_driver_factory import get_selenium_driver
+from dom.selenium_driver_factory import get_selenium_driver
 
 class SeleniumWrapper:
   def __init__(self, url, browser) -> None:
