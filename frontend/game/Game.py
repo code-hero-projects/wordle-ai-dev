@@ -17,13 +17,11 @@ class Game:
     for i in range(1, 6):
       suggested_words = self.word_api.get_word(self.game_state)
       recommended_word = suggested_words.recommended_word
-
-      if (len(suggested_words.filtered_words) == 1):
-        write_word(recommended_word)
+      self.play_turn(i, recommended_word, self.game_state, self.selenium_wrapper)
+      
+      if (self.game_state.correct_letters == 5):
         time.sleep(self.end_game_sleep)
         break
-
-      self.play_turn(i, recommended_word, self.game_state, self.selenium_wrapper)
 
   def play_turn(self, turn, word, game_state, selenium_wrapper):
     write_word(word)
