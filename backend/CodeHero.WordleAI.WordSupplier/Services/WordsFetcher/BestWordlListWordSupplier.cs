@@ -3,7 +3,7 @@ using CodeHero.WordleAI.Domain.Services;
 using HtmlAgilityPack;
 using System.Net;
 
-namespace CodeHero.WordleAI.WordSupplier.Services
+namespace CodeHero.WordleAI.WordSupplier.Services.WordsFetcher
 {
     public class BestWordlListWordSupplier : IWordsFetcher
     {

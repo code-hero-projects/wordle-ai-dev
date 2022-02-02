@@ -30,14 +30,10 @@ namespace CodeHero.WordleAI.Migrations.PostgreSql.Migrations
 
                     b.Property<string>("Characters")
                         .IsRequired()
-                        .HasMaxLength(6)
-                        .HasColumnType("character varying(6)");
+                        .HasColumnType("text");
 
-                    b.Property<int>("DifferentLetters")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("MostUsedLetters")
-                        .HasColumnType("integer");
+                    b.Property<double>("Score")
+                        .HasColumnType("double precision");
 
                     b.HasKey("Id");
 

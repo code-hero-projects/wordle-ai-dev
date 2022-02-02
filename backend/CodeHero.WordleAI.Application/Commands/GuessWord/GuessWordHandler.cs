@@ -21,8 +21,7 @@ namespace CodeHero.WordleAI.Application.Commands.GuessWord
         {
             var allWords = await _wordRepository.ListAsync();
             
-            var filteredWords = allWords
-                .Where(word => CorrectWordConditions.All(condition => condition(request, word.Characters)));
+            var filteredWords = allWords.Where(word => CorrectWordConditions.All(condition => condition(request, word.Characters)));
 
             var availableWords = filteredWords.Select(word => word.Characters);
             var recommendedWord = filteredWords.Aggregate(AggregateWords).Characters;
@@ -40,19 +39,6 @@ namespace CodeHero.WordleAI.Application.Commands.GuessWord
 
         private static bool TriedWords(GuessWordRequest request, string currentWord) => !request.Tried.Any(tried => tried == currentWord);
 
-        private static Word AggregateWords(Word selected, Word next)
-        {
-            if (selected.DifferentLetters > next.DifferentLetters)
-            {
-                return selected;
-            }
-
-            if (selected.DifferentLetters < next.DifferentLetters)
-            {
-                return next;
-            }
-
-            return selected.MostUsedLetters >= next.MostUsedLetters ? selected : next;
-        }
+        private static Word AggregateWords(Word selected, Word next) => selected.Score >= next.Score ? selected : next;
     }
 }
