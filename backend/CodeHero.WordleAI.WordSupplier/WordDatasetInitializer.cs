@@ -28,10 +28,14 @@ namespace CodeHero.WordleAI.WordSupplier
         private static async Task AddWordsToDatabase(IServiceProvider serviceProvider, IWordRepository wordRepository)
         {
             var wordFetcher = serviceProvider.GetService<IWordsFetcher>();
-            var wordClassifier = serviceProvider.GetService<IWordsClassifier>();
+            var wordClassifiers = serviceProvider.GetServices<IWordsClassifier>();
 
             var words = await wordFetcher.FetchWordsAsync();
-            words = await wordClassifier.ClassifyAsync(words);
+
+            foreach (var wordClassifier in wordClassifiers)
+            {
+                words = await wordClassifier.ClassifyAsync(words);
+            }
 
             foreach (var word in words)
             {

@@ -4,6 +4,7 @@
     {
         public Guid Id { get; set; }
         public string Characters { get; set; }
-        public double Score { get; set; }
+        public int DifferentLetters { get; set; }
+        public int MostUsedLetters { get; set; }
     }
 }

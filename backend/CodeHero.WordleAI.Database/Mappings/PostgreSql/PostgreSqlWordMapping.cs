@@ -18,7 +18,11 @@ namespace CodeHero.WordleAI.Database.Mappings.PostgreSql
                 .IsRequired();
 
             builder
-                .Property(x => x.Score)
+                .Property(x => x.DifferentLetters)
+                .IsRequired();
+
+            builder
+                .Property(x => x.MostUsedLetters)
                 .IsRequired();
         }
     }

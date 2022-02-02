@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CodeHero.WordleAI.Migrations.PostgreSql.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220122152541_InitialMigration")]
+    [Migration("20220202114210_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,7 +32,14 @@ namespace CodeHero.WordleAI.Migrations.PostgreSql.Migrations
 
                     b.Property<string>("Characters")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(6)
+                        .HasColumnType("character varying(6)");
+
+                    b.Property<int>("DifferentLetters")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("MostUsedLetters")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 

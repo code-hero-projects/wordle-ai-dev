@@ -40,6 +40,19 @@ namespace CodeHero.WordleAI.Application.Commands.GuessWord
 
         private static bool TriedWords(GuessWordRequest request, string currentWord) => !request.Tried.Any(tried => tried == currentWord);
 
-        private static Word AggregateWords(Word selected, Word next) => selected.Score >= next.Score ? selected : next;
+        private static Word AggregateWords(Word selected, Word next)
+        {
+            if (selected.DifferentLetters > next.DifferentLetters)
+            {
+                return selected;
+            }
+
+            if (selected.DifferentLetters < next.DifferentLetters)
+            {
+                return next;
+            }
+
+            return selected.MostUsedLetters >= next.MostUsedLetters ? selected : next;
+        }
     }
 }
