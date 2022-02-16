@@ -10,7 +10,7 @@ def main():
   word_api = WordleAIApi(API_URL)
   input_wrapper = PyAutoGuiWrapper()
 
-  time.sleep(5)
+  time.sleep(2)
   input_wrapper.close_modal()
 
   game = Game(dom_wrapper, word_api, input_wrapper, FIRST_WORD, SLEEP_AFTER_WORD_IN_SECONDS, SLEEP_AFTER_END_GAME_IN_SECCONDS)
