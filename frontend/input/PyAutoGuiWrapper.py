@@ -4,8 +4,11 @@ class PyAutoGuiWrapper:
   def __init__(self) -> None:
       pass
 
-  def close_modal(self):
-    pyautogui.click()
+  def click(self, x, y):
+    pyautogui.click(x, y)
+  
+  def zoom(self):
+    pyautogui.hotkey('ctrl', '+')
 
   def write_word(self, word):
     for letter in word:

@@ -6,12 +6,11 @@ from dom.SeleniumWrapper import SeleniumWrapper
 from api.WordleAIApi import WordleAIApi
 
 def main():
-  dom_wrapper = SeleniumWrapper(WORDLE_URL, BROWSER)
-  word_api = WordleAIApi(API_URL)
   input_wrapper = PyAutoGuiWrapper()
+  dom_wrapper = SeleniumWrapper(WORDLE_URL, BROWSER, input_wrapper)
+  word_api = WordleAIApi(API_URL)
 
-  time.sleep(2)
-  input_wrapper.close_modal()
+  time.sleep(7)
 
   game = Game(dom_wrapper, word_api, input_wrapper, FIRST_WORD, SLEEP_AFTER_WORD_IN_SECONDS, SLEEP_AFTER_END_GAME_IN_SECCONDS)
   game.play()

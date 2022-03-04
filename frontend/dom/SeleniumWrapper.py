@@ -1,17 +1,20 @@
+import time
 from pyshadow.main import Shadow
 from game.model.LetterInput import LetterInput
 from game.model.LetterState import LetterState
 from dom.selenium_driver_factory import get_selenium_driver
 
 class SeleniumWrapper:
-  def __init__(self, url, browser) -> None:
-      self.driver = get_selenium_driver(browser)
-      self.driver.maximize_window()
-      self.driver.get(url)
-      self.driver = Shadow(self.driver)
+  def __init__(self, url, browser, input_wrapper) -> None:
+    self.driver = get_selenium_driver(browser)
+    self.driver.maximize_window()
+    self.driver.get(url)
+    self.driver = Shadow(self.driver)
+    self.input_wrapper = input_wrapper
 
-      self.turn_tiles_mapper = { 0: (0, 5), 1: (5, 10), 2: (10, 15), 3: (15, 20), 4: (20, 25), 5: (25, 30) }
-      self.letter_state_mapper = { 'absent': LetterState.WRONG, 'correct': LetterState.CORRECT, 'present': LetterState.MISPLACED }
+    self.turn_tiles_mapper = { 0: (0, 5), 1: (5, 10), 2: (10, 15), 3: (15, 20), 4: (20, 25), 5: (25, 30) }
+    self.letter_state_mapper = { 'absent': LetterState.WRONG, 'correct': LetterState.CORRECT, 'present': LetterState.MISPLACED }
+    self._setup_window()
 
   def get_last_input(self, turn):
     all_row_tiles = self.driver.find_elements("game-tile")
@@ -28,3 +31,17 @@ class SeleniumWrapper:
       letter_inputs.append(letter_input)
 
     return letter_inputs
+  
+  def _setup_window(self):
+    for i in range(5):
+      self.input_wrapper.zoom()
+    self.input_wrapper.click(2000, 1200)
+    self.input_wrapper.click(2000, 500)
+    time.sleep(1)
+    self.input_wrapper.click(2500, 150)
+    time.sleep(10)
+    self.input_wrapper.click(1750, 370)
+    time.sleep(1)
+    self.input_wrapper.click(1750, 250)
+    time.sleep(1)
+    self.input_wrapper.click(1750, 150)
