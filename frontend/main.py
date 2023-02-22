@@ -10,7 +10,7 @@ def main():
   dom_wrapper = SeleniumWrapper(WORDLE_URL, BROWSER, input_wrapper)
   word_api = WordleAIApi(API_URL)
 
-  time.sleep(7)
+  time.sleep(5)
 
   game = Game(dom_wrapper, word_api, input_wrapper, FIRST_WORD, SLEEP_AFTER_WORD_IN_SECONDS, SLEEP_AFTER_END_GAME_IN_SECCONDS)
   game.play()

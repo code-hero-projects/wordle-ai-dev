@@ -17,14 +17,15 @@ class SeleniumWrapper:
     self._setup_window()
 
   def get_last_input(self, turn):
-    all_row_tiles = self.driver.find_elements("game-tile")
+    all_row_tiles = self.driver.find_elements(".Tile-module_tile__UWEHN")
     (begin_tile_index, end_tile_index) = self.turn_tiles_mapper[turn]
     current_turn_tiles = all_row_tiles[begin_tile_index : end_tile_index]
 
     letter_inputs = []
     for tile in current_turn_tiles:
-      letter = self.driver.get_attribute(tile, 'letter')
-      evaluation = self.driver.get_attribute(tile, 'evaluation')
+      aria_label = self.driver.get_attribute(tile, 'aria-label')
+      letter = aria_label[0:1]
+      evaluation = aria_label[2:]
       letter_state = self.letter_state_mapper[evaluation]
 
       letter_input = LetterInput(letter, letter_state)
@@ -39,9 +40,11 @@ class SeleniumWrapper:
     self.input_wrapper.click(2000, 500)
     time.sleep(1)
     self.input_wrapper.click(2500, 150)
-    time.sleep(10)
-    self.input_wrapper.click(1750, 370)
     time.sleep(1)
-    self.input_wrapper.click(1750, 250)
+    self.input_wrapper.click(1700, 580)
     time.sleep(1)
-    self.input_wrapper.click(1750, 150)
+    self.input_wrapper.click(1700, 470)
+    time.sleep(1)
+    self.input_wrapper.click(1700, 370)
+    time.sleep(1)
+    self.input_wrapper.click(1850, 370)
