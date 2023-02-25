@@ -48,3 +48,5 @@ class SeleniumWrapper:
     self.input_wrapper.click(1700, 370)
     time.sleep(1)
     self.input_wrapper.click(1850, 370)
+    time.sleep(1)
+    self.input_wrapper.fullscreen()

@@ -14,3 +14,6 @@ class PyAutoGuiWrapper:
     for letter in word:
       pyautogui.press(letter)
     pyautogui.press('enter')
+
+  def fullscreen(self):
+    pyautogui.press('f11')
